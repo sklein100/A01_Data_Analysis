@@ -22,7 +22,7 @@ Create a daily time series for `r lubridate::year(Sys.time())`:
 require(zoo)
 require(xts)
 options(xts_check_TZ=FALSE)
-Dates <- c("1989-09-28","2001-01-15","2004-08-30", "1990-02-09")
+Dates <- c("1989-09-28","2001-01-15","2004-08-30", "1990-02-09") #comment new
 Times <-c("23:12:55", "10:34:02", "08:30:00", "11:18:23")
 DatesTimes <- paste(Dates, Times)
 as.Date(DatesTimes)
@@ -130,7 +130,7 @@ FFdownload(output_file = tmpf, tempdir = tmpd, exclude_daily = FALSE, download =
 load(tmpf)
 list.files(tmpd)
 
-#prepare Fama-French data and merge it
+#prepare Fama-French data and merge it 
 ffFactorsDaily <- tk_tbl(FFdownload$`x_F-F_Research_Data_Factors`$daily$Temp2, timetk_idx = TRUE, rename_index = "date")
 ffFactorsDaily <- ffFactorsDaily[ffFactorsDaily$date >= startDate,,,,]
 tail(ffFactorsDaily) #Fama-French data is only available till 30.06.2020 as of today
